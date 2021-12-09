@@ -1,6 +1,8 @@
 import { Message } from 'discord.js';
 import { ICommand, ICommandsHandler, IMiddleware, INext, IParserOptions, IPayload } from './types';
 
+export { ICommand, ICommandsHandler, IMiddleware, INext, IParserOptions, IPayload };
+
 export class CommandsHandler implements ICommandsHandler {
 	private commands: Array<ICommand> = [];
 	private prefix: string;
