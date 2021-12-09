@@ -25,7 +25,7 @@ const list: Array<ICommand> = [
         multicase: true
     },
     {
-        name: ["UwU"],
+        name: ["UwU", "uwu"],
         out: new UwU()
     }
 ];
