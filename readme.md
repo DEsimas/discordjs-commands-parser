@@ -58,7 +58,7 @@ Command.out is class that have to have method `execute` that takes payload.
 ```javascript
 class Help {
     execute(payload) {
-        payload.commandsList.forEach((el) => {
+        payload.commands.forEach((el) => {
             console.log(el.name[0]);
         });
 
@@ -86,7 +86,7 @@ import { CommandsHandler } from "discordjs-commands-parser";
 
 class Help {
     execute(payload) {
-        payload.commandsList.forEach((el) => {
+        payload.commands.forEach((el) => {
             console.log(el.name[0]);
         });
 
