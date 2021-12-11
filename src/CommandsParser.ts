@@ -1,5 +1,5 @@
 import { Message } from 'discord.js';
-import { ICommand, ICommandsHandler, IMiddleware, INext, IParserOptions, IPayload } from './types';
+import { ICommand, ICommandHandler, ICommandsHandler, IMiddleware, INext, IParserOptions, IPayload } from './types';
 
 class CommandsHandler implements ICommandsHandler {
 	private commands: Array<ICommand> = [];
@@ -50,4 +50,4 @@ class CommandsHandler implements ICommandsHandler {
 	}
 };
 
-export { CommandsHandler, ICommand, ICommandsHandler, IMiddleware, INext, IParserOptions, IPayload }
+export { ICommandHandler, CommandsHandler, ICommand, ICommandsHandler, IMiddleware, INext, IParserOptions, IPayload }
