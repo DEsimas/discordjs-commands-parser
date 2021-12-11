@@ -1,5 +1,5 @@
 import { Message } from 'discord.js';
-import { ICommandHandler, ICommand, ICommandsHandler, IMiddleware, INext, IParserOptions, IPayload } from './types';
+import { ICommand, ICommandsHandler, IMiddleware, INext, IParserOptions, IPayload } from './types';
 
 class CommandsHandler implements ICommandsHandler {
 	private commands: Array<ICommand> = [];
@@ -17,7 +17,8 @@ class CommandsHandler implements ICommandsHandler {
 		payload.commands.every(command => {
 			return command.name.every(name => {
 				if((command.multicase ? payload.args[0].toLowerCase() : payload.args[0]) === (command.multicase ? (payload.prefix+name).toLowerCase() : payload.prefix+name)) {
-					command.out.execute(payload);
+					const handler = new command.out(payload);
+					handler.execute();
 					return false;
 				}
 				return true;
@@ -49,4 +50,4 @@ class CommandsHandler implements ICommandsHandler {
 	}
 };
 
-export { CommandsHandler, ICommandHandler, ICommand, ICommandsHandler, IMiddleware, INext, IParserOptions, IPayload }
+export { CommandsHandler, ICommand, ICommandsHandler, IMiddleware, INext, IParserOptions, IPayload }

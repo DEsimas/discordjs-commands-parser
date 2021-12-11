@@ -1,7 +1,7 @@
 import { Message } from 'discord.js';
 
 export interface ICommandHandler {
-	execute(payload: IPayload): void;
+	execute(): void;
 };
 
 export interface IPayload {
@@ -15,7 +15,7 @@ export interface IPayload {
 
 export interface ICommand {
 	name: Array<string>;
-	out: ICommandHandler;
+	out: new (payload: IPayload) => ICommandHandler;
 	multicase?: boolean;
 	[key: string]: any;
 };
