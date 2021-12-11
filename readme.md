@@ -91,18 +91,27 @@ import Discord from "discord.js";
 import { CommandsHandler } from "discordjs-commands-parser";
 
 class Help {
-    execute(payload) {
-        payload.commands.forEach((el) => {
+    constructor(payload) {
+        this.payload = payload;
+    }
+
+    execute() {
+        console.log(this.payload);
+        this.payload.commands.forEach((el) => {
             console.log(el.name[0]);
         });
 
-        payload.message.channel.send("Done!");
+        this.payload.message.channel.send("Done!");
     }
 };
 
 class SayHi {
-    execute(payload) {
-        payload.message.channel.send("Hi!");
+    constructor(payload) {
+        this.message = message;
+    }
+
+    execute() {
+        this.message.channel.send("Hi!");
     }
 };
 

@@ -1,6 +1,6 @@
 {
   "name": "discordjs-commands-parser",
-  "version": "2.1.2",
+  "version": "2.1.3",
   "main": "./dist/CommandsParser.js",
   "types": "./dist/CommandsParser.d.ts",
   "scripts": {
