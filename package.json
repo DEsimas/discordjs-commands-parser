@@ -1,10 +1,10 @@
 {
   "name": "discordjs-commands-parser",
-  "version": "1.3.3",
+  "version": "1.3.4",
   "main": "./dist/CommandsParser.js",
   "types": "./dist/CommandsParser.d.ts",
   "scripts": {
-    "publish": "npx tsc && npm pack && npm publsh"
+    "deploy": "npx tsc && npm pack && npm publish"
   },
   "devDependencies": {
     "typescript": "^4.5.2"
