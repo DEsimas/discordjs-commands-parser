@@ -1,26 +1,43 @@
 {
   "name": "discordjs-commands-parser",
-  "version": "2.1.5",
-  "main": "./dist/CommandsParser.js",
-  "types": "./dist/CommandsParser.d.ts",
-  "scripts": {
-    "deploy": "npx tsc && npm pack && npm publish",
-    "test": "npx tsc && npm pack && npm link"
-  },
-  "devDependencies": {
-    "typescript": "^4.5.2"
-  },
-  "dependencies": {
-    "discord.js": "^13.3.1"
-  },
-  "files": [
-    "dist/**/*"
-  ],
+  "version": "2.1.6",
+  "description": "This package privides class for handling messages in discordjs library.",
   "keywords": [
     "typescript",
     "discord",
     "discordjs",
     "parser",
     "middlewares"
-  ]
+  ],
+  "homepage": "https://www.npmjs.com/package/discordjs-commands-parser",
+  "bugs": {
+    "url": "https://github.com/DEsimas/discordjs-commands-parser/issues",
+    "email": "simasuh@gmail.com"
+  },
+  "license": "ISC",
+  "author": {
+    "name": "Serafim Sukharev",
+    "email": "simasuh@gmail.com"
+  },
+  "files": [
+    "dist/**/*"
+  ],
+  "main": "./dist/CommandsParser.js",
+  "types": "./dist/CommandsParser.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DEsimas/discordjs-commands-parser"
+  },
+  "scripts": {
+    "publish": "npm run prepublish && npm publish",
+    "prepublish": "npx tsc && npm pack",
+    "test": "npx tsc && npm pack && npm link"
+  },
+  "dependencies": {
+    "discord.js": "^13.3.1"
+  },
+  "devDependencies": {
+    "typescript": "^4.5.2"
+  },
+  "private": false
 }
