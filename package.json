@@ -1,7 +1,7 @@
 {
   "name": "discordjs-commands-parser",
-  "version": "2.1.6",
-  "description": "This package privides class for handling messages in discordjs library.",
+  "version": "2.1.7",
+  "description": "This package provides class for handling messages in discordjs library.",
   "keywords": [
     "typescript",
     "discord",
@@ -29,7 +29,7 @@
     "url": "https://github.com/DEsimas/discordjs-commands-parser"
   },
   "scripts": {
-    "publish": "npm publish",
+    "publish": "npm run prepublish && npm publish",
     "prepublish": "npx tsc && npm pack",
     "test": "npx tsc && npm pack && npm link"
   },
