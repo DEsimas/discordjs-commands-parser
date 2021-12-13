@@ -29,7 +29,7 @@
     "url": "https://github.com/DEsimas/discordjs-commands-parser"
   },
   "scripts": {
-    "publish": "npx tsc && npm pack && npm publish",
+    "publish": "npm publish",
     "prepublish": "npx tsc && npm pack",
     "test": "npx tsc && npm pack && npm link"
   },
