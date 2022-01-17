@@ -1,6 +1,6 @@
 {
   "name": "discordjs-commands-parser",
-  "version": "2.1.7",
+  "version": "3.0.0",
   "description": "This package provides class for handling messages in discordjs library.",
   "keywords": [
     "typescript",
@@ -22,8 +22,8 @@
   "files": [
     "dist/**/*"
   ],
-  "main": "./dist/CommandsParser.js",
-  "types": "./dist/CommandsParser.d.ts",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/DEsimas/discordjs-commands-parser"
