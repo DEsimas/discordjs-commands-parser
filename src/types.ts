@@ -1,40 +1,67 @@
-import { Message } from 'discord.js';
+import { Client, Message } from 'discord.js';
 
-export interface ICommandHandler {
+/**
+ * @description Class that handles one command
+ * @param execute Will be called for handling
+ */
+export interface CommandHandler {
 	execute(): void;
 };
 
-export interface IPayload {
+/**
+ * @description Information about recieved message. Can be modyfied from middlewares
+ * @param client Bot client
+ * @param message Recieved message
+ * @param commands List of all bot commands
+ * @param prefix Bot prefix
+ * @param args Command arguments
+ * @param middlewares Middlewares array
+ */
+export interface Payload {
+    client: Client;
 	message: Message;
-	commands: Array<ICommand>;
+	commands: Array<Command>;
     prefix: string;
     args: Array<string>;
-    middlewares: Array<IMiddleware>; 
+    middlewares: Array<Middleware>; 
 	[key: string]: any;
 }
 
-export interface ICommand {
+/**
+ * @description Object describing one bot command
+ * @param name Array of command aliases
+ * @param out Command handling class
+ * @param multicase Optional parameter. If true command register will be ignored
+ */
+export interface Command {
 	name: Array<string>;
-	out: new (payload: IPayload) => ICommandHandler;
+	out: new (payload: Payload) => CommandHandler;
 	multicase?: boolean;
 	[key: string]: any;
 };
 
-export interface ICommandsHandler {
-	getEventHandler: () => (message: Message) => void;
-}
+/**
+ * @description Function that will be called before message handling
+ * @param payload Information about recieved message
+ */
+export type Middleware = (payload: Payload, next: Next) => void;
 
-export interface IMiddleware {
-    (payload: IPayload, next: INext): void;
-}
+/**
+ * @description Function that calls next middleware
+ * @param payload Information about recieved message
+ */
+export type Next = (payload: Payload) => void;
 
-export interface INext {
-    (payload: IPayload): void;
-}
-
-export interface IParserOptions {
-    commandsList: Array<ICommand>;
+/**
+ * @description Options for discordjs-commands parser
+ * @param client Bot client
+ * @param commandsList Array of bot commands
+ * @param prefix Bot prefix
+ * @param middlewares Array of middlewares
+ */
+export interface ParserOptions {
+    client: Client;
+    commandsList: Array<Command>;
     prefix: string;
-    middlewares?: Array<IMiddleware>;
-    [key: string]: any;
+    middlewares?: Array<Middleware>;
 }
