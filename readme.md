@@ -12,7 +12,7 @@ You should create instance of the CommandsParser class. Method `getEventHandler(
 
 ```  javascript
 import * as Discord from "discord.js";                      // const Discord = require("discord.js");
-import { CommandsParser } from "discordjs-commands-parser"; // const Discord = require("discordjs-commands-parser");
+import { CommandsParser } from "discordjs-commands-parser"; // const CommandsParser = require("discordjs-commands-parser").CommandsParser;
 
 const options = {...}; // commands parser options
 
@@ -94,6 +94,7 @@ const middlewares = [saveUser, logger];
 async function saveUser(payload, next) {
     const user = await DAO.save(payload.message.author.id);
     if(user.error) return; // stops handling this message
+    next(payload);
 }
 
 function logger(payload, next) {
@@ -108,7 +109,7 @@ function logger(payload, next) {
 
 ``` javascript
 import Discord from "discord.js";                             // const Discord = require("discord.js");
-import { CommandsParser } from "discordjs-commands-parser";   // const Discord = require("discordjs-commands-parser");
+import { CommandsParser } from "discordjs-commands-parser";   // const CommandsParser = require("discordjs-commands-parser").CommandsParser;
 
 class Help {
     constructor(payload) {
